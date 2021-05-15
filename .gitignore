@@ -20,5 +20,7 @@ atlassian-ide-plugin.xml
 node
 node_modules
 
+
+src/tsconfig.types.tsbuildinfo
 dist
 coverage
