@@ -5,9 +5,6 @@ jobs:
   test-react-spa-components:
     name: test react-spa-components
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: react-spa-components
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
