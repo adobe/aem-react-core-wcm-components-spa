@@ -1,6 +1,6 @@
 {
   "name": "@adobe/aem-core-components-react-spa",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "license": "Apache-2.0",
   "scripts": {
     "clean": "shx rm -rf coverage/ dist/ src/tsconfig.types.tsbuildinfo",
@@ -123,5 +123,14 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      ["@semantic-release/git", {
+        "assets": ["package.json"]
+      }]
+    ]
   }
 }
