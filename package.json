@@ -19,7 +19,7 @@
   "author": {
     "name": "Adobe Systems Inc."
   },
-  "homepage": "https://github.com/adobe/aem-react-core-wcm-components/blob/master/README.md",
+  "homepage": "https://github.com/adobe/aem-react-core-wcm-components-spa/blob/master/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/adobe/aem-react-core-wcm-components-spa"
