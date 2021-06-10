@@ -1,6 +1,6 @@
 {
   "name": "@adobe/aem-core-components-react-spa",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "license": "Apache-2.0",
   "scripts": {
     "clean": "shx rm -rf coverage/ dist/ src/tsconfig.types.tsbuildinfo",
