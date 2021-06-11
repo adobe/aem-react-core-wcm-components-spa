@@ -21,6 +21,7 @@ config.output.library = '@adobe/aem-core-components-react-spa';
 config.entry = {
     'index': ['./src/index.ts'],
     'isEmptyFunctions': ['./src/isEmptyFunctions.ts'],
+    'container/contentfragment/v1': ['./src/container/contentfragment/v1/index.ts'],
     'container/accordion/v1/AccordionV1': ['./src/container/accordion/v1/AccordionV1.tsx'],
     'container/carousel/v1/CarouselV1': ['./src/container/carousel/v1/CarouselV1.tsx'],
     'container/container/v1/ContainerV1': ['./src/container/container/v1/ContainerV1.tsx'],

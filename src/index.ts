@@ -27,3 +27,6 @@ export { default as CarouselV1 } from "./container/carousel/v1/CarouselV1";
 
 export * from './container/container/v1/ContainerV1';
 export { default as ContainerV1 } from "./container/container/v1/ContainerV1";
+
+export * from './container/contentfragment/v1/ContentFragmentV1';
+export { default as ContentFragmentV1 } from "./container/contentfragment/v1/ContentFragmentV1";
