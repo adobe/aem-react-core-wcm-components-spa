@@ -1,6 +1,6 @@
 
-import {MappedComponentProperties} from "@adobe/aem-react-editable-components";
-import {CoreContainerProperties} from "../../../AbstractCoreContainerComponent";
+import {ContainerProperties, MappedComponentProperties} from "@adobe/aem-react-editable-components";
+import {HasBaseCssClass} from "../../../AbstractCoreContainerComponent";
 
 export interface ContentFragmentV1Element {
     "dataType": string
@@ -10,7 +10,7 @@ export interface ContentFragmentV1Element {
     "multiValue": boolean
 }
 
-export interface ContentFragmentV1Properties extends CoreContainerProperties, MappedComponentProperties {
+export interface ContentFragmentV1Properties extends ContainerProperties, MappedComponentProperties, HasBaseCssClass {
 
     id: string
     title: string
@@ -20,4 +20,3 @@ export interface ContentFragmentV1Properties extends CoreContainerProperties, Ma
     model: string
 
 }
-

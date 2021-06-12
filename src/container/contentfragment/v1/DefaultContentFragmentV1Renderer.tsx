@@ -1,50 +1,25 @@
 import React from "react";
-import {Container, MappedComponentProperties, Utils} from "@adobe/aem-react-editable-components";
-import {ContentFragmentV1Properties} from "./model";
-import {withStandardBaseCssClass} from "../../../AbstractCoreContainerComponent";
+import {Container, ContainerState, MappedComponentProperties, Utils} from "@adobe/aem-react-editable-components";
+import {ContentFragmentV1Element, ContentFragmentV1Properties} from "./model";
 
-class DefaultContentFragmentV1Renderer extends Container<ContentFragmentV1Properties, any> {
+export class DefaultContentFragmentV1Renderer<T extends ContentFragmentV1Properties, S extends ContainerState> extends Container<T, S> {
 
-    /**
-     * Returns the child components of this Container.
-     * It will instantiate the child components if mapping exists.
-     *
-     * @returns An array with the components instantiated to JSX
-     */
-    get childComponents(): JSX.Element[] {
-        const childComponents: JSX.Element[] = [];
-
-        if (!this.props.elements || !this.props.elementsOrder) {
-            return childComponents;
-        }
-
-        this.props.elementsOrder.map((itemKey) => {
-            const itemProps = Utils.modelToProps(this.props.elements[itemKey]);
-
-            if (itemProps) {
-                const ItemComponent: React.ComponentType<MappedComponentProperties> = this.state.componentMapping.get(itemProps.cqType);
-
-                if (ItemComponent) {
-                    childComponents.push(this.connectComponentWithItem(ItemComponent, itemProps, itemKey));
-                }
-            }
-        });
-
-        return childComponents;
+    protected renderElement(element:ContentFragmentV1Element, name:string, index:number):JSX.Element{
+        return (
+            <div key={this.props.id + "-element-" + element + "-" + index} className={this.props.baseCssClass + "__element"}>
+                <div className={this.props.baseCssClass + "__elemententry " + this.props.baseCssClass + "__elemententry--key"}><h4>{name}</h4></div>
+                <div className={this.props.baseCssClass + "__elemententry " + this.props.baseCssClass + "__elemententry--value"}>value: {element.value}</div>
+                <div className={this.props.baseCssClass + "__elemententry " + this.props.baseCssClass + "__elemententry--datatype"}>datatype: {element.dataType}</div>
+                <div className={this.props.baseCssClass + "__elemententry " + this.props.baseCssClass + "__elemententry--multivalue"}>multivalue: {element.multiValue ? 'true': 'false'}</div>
+                <div className={this.props.baseCssClass + "__elemententry " + this.props.baseCssClass + "__elemententry--type"}>type: {element[":type"]}</div>
+            </div>
+        )
     }
 
-    get elements():JSX.Element{
+    protected get elements():JSX.Element{
         return (
             <div className={this.props.baseCssClass + "__elements"}>
-                {this.props.elementsOrder.map(
-                    element => <div className={this.props.baseCssClass + "__element"}>
-                        <div className={this.props.baseCssClass + "__elemententry " + this.props.baseCssClass + "__elemententry--key"}><h4>{element}</h4></div>
-                        <div className={this.props.baseCssClass + "__elemententry " + this.props.baseCssClass + "__elemententry--value"}>value: {this.props.elements[element].value}</div>
-                        <div className={this.props.baseCssClass + "__elemententry " + this.props.baseCssClass + "__elemententry--datatype"}>datatype: {this.props.elements[element].dataType}</div>
-                        <div className={this.props.baseCssClass + "__elemententry " + this.props.baseCssClass + "__elemententry--multivalue"}>multivalue: {this.props.elements[element].multiValue ? 'true': 'false'}</div>
-                        <div className={this.props.baseCssClass + "__elemententry " + this.props.baseCssClass + "__elemententry--type"}>type: {this.props.elements[element][":type"]}</div>
-                    </div>
-                )}
+                {this.props.elementsOrder.map((element, index) => this.renderElement(this.props.elements[element], element,index))};
             </div>
         )
     }
@@ -68,6 +43,3 @@ class DefaultContentFragmentV1Renderer extends Container<ContentFragmentV1Proper
         )
     }
 }
-
-
-export default withStandardBaseCssClass(DefaultContentFragmentV1Renderer, "cmp-contentfragment");

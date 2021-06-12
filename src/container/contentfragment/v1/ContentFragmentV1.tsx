@@ -16,11 +16,11 @@
 
 import React from "react";
 
-import {ComponentMapping, Container,} from '@adobe/aem-react-editable-components';
+import {ComponentMapping, Container} from '@adobe/aem-react-editable-components';
 import {ContentFragmentV1IsEmptyFn} from "./ContentFragmentV1IsEmptyFn";
 import {ContentFragmentV1Properties} from "./model";
 import registry from "./ContentFragmentV1Registry";
-import DefaultContentFragmentV1Renderer from "./DefaultContentFragmentV1Renderer";
+import {DefaultContentFragmentV1Renderer} from "./DefaultContentFragmentV1Renderer";
 import {CoreContainerState, withStandardBaseCssClass} from "../../../AbstractCoreContainerComponent";
 
 
@@ -37,26 +37,30 @@ class ContentFragmentV1Impl extends Container<ContentFragmentV1Properties, CoreC
 
     get renderEmptyPlaceHolder() :JSX.Element{
         if(this.props.isInEditor){
-            return <div>ContentFragment is empty.</div>;
+            return <div className={"cf-placeholder"}>ContentFragment is empty.</div>;
         }
         return <></>;
     }
 
     render() {
 
+        const isEmpty = ContentFragmentV1IsEmptyFn(this.props);
+
+        if(isEmpty){
+            return this.renderEmptyPlaceHolder;
+        }
+
         let Component = registry.getRenderer(this.props.model);
 
         if(!Component){
-            Component = DefaultContentFragmentV1Renderer;
+           Component = withStandardBaseCssClass(DefaultContentFragmentV1Renderer, "cmp-contentfragment");
         }
-        const isEmpty = ContentFragmentV1IsEmptyFn(this.props);
-        return isEmpty ? this.renderEmptyPlaceHolder : (
-             <Component {...this.props} componentMapping={this.state.componentMapping}/>
-        )
+
+        return (<Component {...this.props} componentMapping={this.state.componentMapping}/>);
 
     }
 
 }
 
 
-export default withStandardBaseCssClass(ContentFragmentV1Impl, "cmp-contentfragment");
+export default ContentFragmentV1Impl;
