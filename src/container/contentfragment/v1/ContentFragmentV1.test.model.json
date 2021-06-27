@@ -1,0 +1,109 @@
+{
+  "id": "content-fragment-449f30249d",
+  "title": "niektest",
+  "description": "",
+  "cqItems": {
+    "custom-content-fragment": {
+      "id": "content-fragment-36fdd89c42",
+      "title": "niektest",
+      "description": "",
+      ":items": {},
+      ":itemsOrder": [],
+      ":type": "core-components-examples/wcm-react/components/content-fragment",
+      "elements": {
+        "name": {
+          "dataType": "string",
+          "value": "ChildCF",
+          "title": "First name",
+          ":type": "string",
+          "multiValue": false
+        },
+        "age": {
+          "dataType": "long",
+          "value": 18,
+          "title": "Age",
+          ":type": "long",
+          "multiValue": false
+        },
+        "blabla": {
+          "dataType": "string",
+          "value": "<p>asddsdsa</p>\n<p>asdadadsads</p>\n",
+          "title": "blabla",
+          ":type": "text/html",
+          "multiValue": false
+        },
+        "testtest": {
+          "dataType": "json",
+          "value": "{\"bla\":\"asd\"}",
+          "title": "testtest",
+          ":type": "json",
+          "multiValue": false
+        },
+        "dropdownField": {
+          "dataType": "string",
+          "value": "b",
+          "title": "Dropdown Field",
+          ":type": "string",
+          "multiValue": false
+        }
+      },
+      "elementsOrder": [
+        "name",
+        "age",
+        "blabla",
+        "testtest",
+        "dropdownField"
+      ],
+      "model": "testing-frontend-react/models/custom-model"
+    }
+  },
+  "cqItemsOrder": [
+    "custom-content-fragment"
+  ],
+  "cqType": "core-components-examples/wcm-react/components/content-fragment",
+  "elements": {
+    "name": {
+      "dataType": "string",
+      "value": "ChildCF",
+      "title": "First name",
+      ":type": "string",
+      "multiValue": false
+    },
+    "age": {
+      "dataType": "long",
+      "value": 18,
+      "title": "Age",
+      ":type": "long",
+      "multiValue": false
+    },
+    "blabla": {
+      "dataType": "string",
+      "value": "<p>asddsdsa</p>\n<p>asdadadsads</p>\n",
+      "title": "blabla",
+      ":type": "text/html",
+      "multiValue": false
+    },
+    "testtest": {
+      "dataType": "json",
+      "value": "{\"bla\":\"asd\"}",
+      "title": "testtest",
+      ":type": "json",
+      "multiValue": false
+    },
+    "dropdownField": {
+      "dataType": "string",
+      "value": "b",
+      "title": "Dropdown Field",
+      ":type": "string",
+      "multiValue": false
+    }
+  },
+  "elementsOrder": [
+    "name",
+    "age",
+    "blabla",
+    "testtest",
+    "dropdownField"
+  ],
+  "model": "testing-frontend-react/models/testmodel"
+}

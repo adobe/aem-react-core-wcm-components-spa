@@ -20,8 +20,11 @@ import {ContainerState, AllowedComponentsProperties} from '@adobe/aem-react-edit
 import {ComponentType} from "react";
 import { Model } from '@adobe/aem-spa-page-model-manager';
 
-export interface CoreContainerProperties extends AllowedComponentsProperties{
+export interface HasBaseCssClass{
     baseCssClass?:string;
+}
+
+export interface CoreContainerProperties extends AllowedComponentsProperties, HasBaseCssClass{
     activeIndexFromAuthorPanel?:number
 }
 
@@ -46,7 +49,7 @@ const isBrowser = (() => {
 })();
 
 
-export const withStandardBaseCssClass = <M extends CoreContainerProperties>
+export const withStandardBaseCssClass = <M extends HasBaseCssClass>
 (
     Component:ComponentType<M>,
     defaultBaseCssClass:string
