@@ -88,7 +88,7 @@ it('Renders everything properly.', () => {
 
     expect(contentFragment).toHaveLength(1);
 
-    const subContentFragment = wrapper.find('cmp-custom-contentfragment');
+    const subContentFragment = wrapper.find('.cmp-custom-contentfragment');
 
     expect(subContentFragment).toHaveLength(1);
 
